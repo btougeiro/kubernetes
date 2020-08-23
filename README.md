@@ -37,8 +37,8 @@
 - Multi-Container Pods
 - Logging & Monitoring
 - Demos
-- ConfigMaps, 
-- Readiness &
+- ConfigMaps
+- Readiness
 - Pod Design
 - Coding Execution
 
