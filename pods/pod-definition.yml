@@ -1,0 +1,19 @@
+# kind:apiVersion { Pod:v1, Service:v1, ReplicaSet:apps/v1, Deployment:apps/v1 }
+
+apiVersion: v1 # string
+kind: Pod # string
+
+metadata: # dictionary/map
+  name: myapp-pod
+  labels:
+    app: myapp
+    type: front-end # this name is useful to specify your pod type
+    # these labels are free to use and specify information about your environment
+
+spec:
+  containers: # list/array
+    - name: nginx-container # first item in the list
+      image: nginx:latest # image name for this container
+
+# run this doc: kubectl create -f pod-definition.yml
+# get info about this pod: kubectl get pod myapp-pod

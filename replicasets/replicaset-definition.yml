@@ -1,0 +1,28 @@
+# for the replica set we need to specify apps/v1 instead of just v1
+apiVersion: apps/v1
+kind: ReplicaSet # specifying the replica set environment
+metadata: # replica set metadata
+  name: myapp-replicaset
+  labels:
+    app: myapp
+    type: front-end
+spec:
+  template: # provide a pod template to be used
+    # here we can use the same pod-definition.yml to define this configuration
+    metadata: # pod metadata
+      name: myapp-pod
+      labels:
+        app: myapp
+        type: front-end
+    spec:
+      containers:
+        - name: nginx-controller
+          image: nginx
+  replicas: 3 # once using replica set, we need to specify the number of replicas we want to use
+  # only for replica set we need to use a list called selector
+  # it helps to identify what pods follow under it
+  # replicaset can also manage pods where are not created by the replicaset
+  # this selector will be defined to manage those pods
+  selector: # we have two options here matchExpressions or matchLabels
+    matchLabels:
+      type: front-end

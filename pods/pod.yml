@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+
+metadata:
+  name: nginx
+  labels:
+    app: nginx
+    tier: front-end
+
+spec:
+  containers:
+    - name: nginx # container's name
+      image: nginx:1.19 # docker hub image name
+
+# you can use either create or apply
+# kubectl create -f pod.yml
+# kubectl apply -f pod.yml
+
+## to remove you can use the same idea
+# kubectl delete -f pod.yml

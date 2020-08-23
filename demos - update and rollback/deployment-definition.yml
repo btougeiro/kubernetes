@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    tier: frontend
+spec:
+  template:
+    metadata:
+      name: nginx
+      labels:
+        tier: nginx-container
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.9.1
+  replicas: 6
+  selector:
+    matchLabels:
+      tier: nginx-container
+
+# if we enable the --record on the creation
+# all commands will be recorded on kubectl rollout history deployment/deployment-name
+
+# PS C:\Users\btoug\PycharmProjects\kubernetes\demos - update and rollback> kubectl rollout history deployment/nginx-deployment
+#deployment.apps/nginx-deployment
+#REVISION  CHANGE-CAUSE
+#1         kubectl.exe create --filename=.\deployment-definition.yml --record=true

@@ -1,0 +1,21 @@
+# replication controller == creates multiple instances of a pod
+apiVersion: v1
+kind: ReplicationController
+metadata: # rc metadata
+  name: myapp-rc
+  labels:
+    app: myapp
+    type: front-end
+spec:
+  template: # provide a pod template to be used
+    # here we can use the same pod-definition.yml to define this configuration
+    metadata: # pod metadata
+      name: myapp-pod
+      labels:
+        app: myapp
+        type: front-end
+    spec:
+      containers:
+        - name: nginx-controller
+          image: nginx
+  replicas: 3 # once using rc, we need to specify the number of replicas we want to use

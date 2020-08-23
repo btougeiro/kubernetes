@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+
+metadata:
+  name: postgres-database
+  labels:
+    env: production
+    tier: db-tier
+
+spec:
+  containers:
+    - name: postgresql
+      image: postgres:latest
+      env:
+        - name: POSTGRES_PASSWORD
+          value: !D4t4b4s3PassW0rd

@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+spec:
+  type: ClusterIP
+  ports:
+    - targetPort: 80 # backend is exposed
+      port: 80 # service is exposed
+  selector:
+    # get the labels from the pods and add here
+    app: my-application
+    type: backend
