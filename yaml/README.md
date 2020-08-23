@@ -1,4 +1,4 @@
-# What is Yaml?
+# What is Yaml
 
 - Is used to represent data
 - All the identation matters
