@@ -35,3 +35,7 @@ kubectl edit deployment NAME
 ```
 
 ## Debugging Pods
+
+```shell
+kubectl exec -it pod/POD_NAME -- /bin/bash
+```
