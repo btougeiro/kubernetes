@@ -1,6 +1,6 @@
 # Basic Kubectl commands
 
-```shell
+```powershell
 # get the status of the nodes
 kubectl get nodes
 
@@ -28,14 +28,43 @@ Replicaset is a layer automatically managed by Deployments
 - ReplicaSet manages all the replicas of a Pod
 - Pod is an abstraction of a container
 
-### Edit a deployment
+## Edit a deployment
 
-```shell
+```powershell
 kubectl edit deployment NAME
 ```
 
 ## Debugging Pods
 
-```shell
+```powershell
 kubectl exec -it pod/POD_NAME -- /bin/bash
 ```
+
+## create a deployment using a yaml file
+
+```powershell
+kubectl create -f .\\deployment\\nginx-deployment.yml
+```
+
+## Summary
+
+CRUD commands
+
+- Create deployment -> kubectl create deployment NAME
+- Edit deployment -> kubectl edit deployment NAME
+- Delete deployment -> kubectl delete deployment NAME
+
+Status of different K8S components
+
+- kubectl get nodes | pod | services | replicaset | deployment
+
+Debugging pods
+
+- Log to console -> kubectl logs [pod name]
+- Get interactive Terminal -> kubectl exec -it [pod name] -- /bin/bash
+- Get info about pod -> kubectl describe pod [pod name]
+
+Use configuration file for CRUD
+
+- Apply a configuration file -> kubectl apply -f [file name]
+- Delete with configuration file -> kubectl delete -f [file name]
