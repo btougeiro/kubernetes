@@ -1,4 +1,4 @@
-# what features do oechestration tools offer?
+# what features do orchestration tools offer?
 
 - high availability or no downtime
 - scalability or high performance
